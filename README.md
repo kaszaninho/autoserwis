@@ -8,9 +8,11 @@ Posiada 4 klasy bazo-danowe:
 Dodatkowo każde ma pola (created_at, updated_at) jako timestampsy. 
 
 Jeśli chcesz utworzyć bazę danych u siebie:
-1.  php artisan migrate --path=database/migrations/autoserwis
-2.  Zapyta się czy utworzyć bazę danych (autoserwisLaravel) - wpisz "yes" i ENTER.
-3.  Powinieneś mieć w ten sposób baze danych u siebie.
-
+1.  W cmd przejdź do folderu głównego projektu.
+2.  `php artisan migrate --path=database/migrations/autoserwis`
+3.  Zapyta się czy utworzyć bazę danych (autoserwisLaravel) - wpisz "yes" i ENTER.
+4.  Powinieneś mieć w ten sposób baze danych u siebie.
+5.  Są już dodane seedery. Jak chcesz ich użyć, to użyj komendy
+`php artisan db:seed`
 
 
