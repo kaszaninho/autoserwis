@@ -15,5 +15,5 @@ Jeśli chcesz utworzyć bazę danych u siebie:
 5.  Są już dodane seedery. Jak chcesz ich użyć, to użyj komendy
 `php artisan db:seed`
 
-PIERDOŁA
+PIERDOŁA2
 
