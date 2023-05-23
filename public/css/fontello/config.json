@@ -1,0 +1,118 @@
+{
+  "name": "gajdi",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "4dd56d61fd0dab19277824da301424b3",
+      "css": "emo-devil",
+      "code": 59397,
+      "src": "fontelico"
+    },
+    {
+      "uid": "47a1f80457068fbeab69fdb83d7d0817",
+      "css": "youtube-play",
+      "code": 61802,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "4743b088aa95d6f3b6b990e770d3b647",
+      "css": "facebook-squared",
+      "code": 62216,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "a58fe946fe31826f0b19cb4dfaaf13d2",
+      "css": "googleplus",
+      "code": 59392,
+      "src": "elusive"
+    },
+    {
+      "uid": "f279f25007794fa6837ff78fe94b216e",
+      "css": "money",
+      "code": 61654,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "500fc1f109021e4b1de4deda2f7ed399",
+      "css": "laptop",
+      "code": 61705,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "72b1277834cba5b7944b0a6cac7ddb0d",
+      "css": "rss",
+      "code": 61598,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "e9e96618b0f44170930f9b179237c76e",
+      "css": "linkedin-rect",
+      "code": 62235,
+      "src": "brandico"
+    },
+    {
+      "uid": "9c2b737b16ae2c8d66b7bfd29ba5ecd8",
+      "css": "chrome",
+      "code": 59457,
+      "src": "fontelico"
+    },
+    {
+      "uid": "9937d762aee170b7350b15dd02dd34a3",
+      "css": "cab",
+      "code": 61881,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "7f3d8ff1d5f6ee019f0c00ed7a86caec",
+      "css": "truck",
+      "code": 59393,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "326dd5dc5899787161184614d04a50b9",
+      "css": "motorcycle",
+      "code": 61980,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "627abcdb627cb1789e009c08e2678ef9",
+      "css": "twitter",
+      "code": 61593,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "e7eecc3cc44f3f4cad6229b202588308",
+      "css": "calendar-plus-o",
+      "code": 62065,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "aa34496baad01bf631deaf33a2acbf85",
+      "css": "ravelry",
+      "code": 62169,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "6a7b9d4863bb7e6c79e9457a72d689b6",
+      "css": "tools",
+      "code": 59394,
+      "src": "entypo"
+    },
+    {
+      "uid": "818a6c2a76c89800632c0335e9cdafee",
+      "css": "gplus-circled",
+      "code": 62224,
+      "src": "entypo"
+    },
+    {
+      "uid": "57a4f84c40a0c44d47387105f162a427",
+      "css": "youtube",
+      "code": 59395,
+      "src": "zocial"
+    }
+  ]
+}
