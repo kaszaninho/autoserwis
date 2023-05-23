@@ -32,9 +32,9 @@
 			 <ol>
 				 
 				 <li><a href="autor.php">Autor</a></li>
-				 <li><a href="start.php">Strona główna</a></li>
-				 <li><a href="historia.php">Historia </a></li>
-				 <li><a href="galeria.php">Galeria </a></li>
+				 <li><a href="/">Strona główna</a></li>
+				 <li><a href="/historia">Historia </a></li>
+				 <li><a href="/galeria">Galeria </a></li>
 				 <li><a>Naprawy</a>
 				 <ul>
 					 <li><a href="cennik.php">Cennik</a></li>

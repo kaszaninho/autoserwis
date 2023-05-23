@@ -18,3 +18,6 @@ Route::get('/', function () {
 });
 use App\Http\Controllers\Start; 
 Route::get('/', Start::class);
+use App\Http\Controllers\Opisy; 
+Route::get('/galeria', [Opisy::class, 'galeria']);
+Route::get('/historia', [Opisy::class, 'historia']);
