@@ -7,10 +7,10 @@ class KontaktController extends Controller
 {
 	public function kontakt() {		
 		
-		return view("kontakt");
+		return view("kontakt.kontakt");
 	}
     public function contact() {		
 		
-		return view("contact");
+		return view("kontakt.contact");
 	}
 }

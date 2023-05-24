@@ -15,54 +15,26 @@
                 <td><b>{{ $naglowek }}</b></td>
             @endforeach
              
-			<td align="center"><b><input class="submit" type="submit" name="przycisk[-1]" value="Dodaj nowego"></b></td>
+			<td align="center"><b><input class="submit" type="submit" value="Dodaj nowego" onClick="action='/cennik/edit/-1'"></b></td>
            
         </tr>
 
         @foreach($typyserwisu as $serwis)
             <tr>
-                <td>{{ $serwis[0] }}</td>
-                <td>{{ $serwis[1] }}</td>
-                <td>{{ $serwis[2] }} zł</td>
+			@foreach($serwis->getAttributes() as $p=>$pole)
+				@if($p == 'id') <td>{{$pole}}</td>	@endif 
+				@if($p == 'nazwa') <td>{{$pole}}</td>	@endif
+				@if($p == 'cena') <td>{{$pole}}</td>	@endif
+				@endforeach	
                  
                     <td align="center">
-					<input class="submit" type="submit" name="przycisk[{{ (int)$serwis[0] }}]" value="Edytuj">
-                        <input class="submit" type="submit" name="przycisk[{{ (int)$serwis[0] }}]" value="Usuń">
+					<input class="submit" type="submit" value="Edytuj" onClick="action='/cennik/edit/{{$serwis->id}}'">
+                    <input class="submit" type="submit" value="Usuń" onClick="action='/cennik/destroy/{{$serwis->id}}'">
                     </td>
                 
             </tr>
         @endforeach
     </table>
 </form>
- 
-	 
-{{--
-Skrypt przedstawiający cennik usług w AutoSerwisie.
-Cennik jest przechowywany w bazie danych w postaci tabeli zakorzneionej w formularzu
- --}}
-
-<form method="POST" action="">
-    <table border="0">
-        <tr>
-            <td>nazwa</td>
-            <td colspan="2">
-                <input type="text" name="nazwa" required value="{{ $nazwa }}" size="15" style="text-align: left">
-            </td>
-        </tr>
-        <tr>
-            <td>cena</td>
-            <td colspan="2">
-                <input type="number" name="cena" required min="10" value="{{ $cena }}" size="15" style="text-align: left">
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3">
-                <input class="submit" type="submit" name="przycisk[{{ $numer }}]" value="Zapisz" style="width:200px">
-            </td>
-        </tr>
-    </table>
-</form>
-
- 
  
 @endsection

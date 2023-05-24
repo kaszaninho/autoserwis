@@ -1,13 +1,7 @@
 @section('content')
 @extends('main')
 						 		
- 
- 
- 
- 
- 
 
-  
 		<p>Masz jakieś pytania? / Potrzebujesz pomocy?<br>
 		Zadaj nam jakieś pytanie skontakujemy się z Tobą najszybciej jak będziemy mogli.<br>
 		<h2>Formularz Kontaktowy</h2>

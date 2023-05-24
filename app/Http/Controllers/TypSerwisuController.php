@@ -14,30 +14,30 @@ class TypSerwisuController extends Controller
 
 	public function edit($id)
 	{
-		if($id != -1) $student = Student::find($id);
-		else $student = new Student(['id'=>-1, 'imie'=>'', 'nazwisko'=>'']);
+		if($id != -1) $typySerwisu = TypSerwisu::find($id);
+		else $typySerwisu = new TypSerwisu(['id'=>-1, 'nazwa'=>'', 'cena'=>'']);
 
-        return view('students.edit', ['student'=>$student]);  
+        return view('typySerwisu.edit', ['typySerwisu'=>$typySerwisu]);  
 	}
 
 	public function update(Request $request, $id)
 	{			
-        if($id != -1) $student = Student::find($id);
-		else $student = new Student();
-        $student->imie =  $request->input('imie');
-        $student->nazwisko = $request->input('nazwisko');
+        if($id != -1) $typySerwisu = TypSerwisu::find($id);
+		else $typySerwisu = new TypSerwisu();
+        $typySerwisu->nazwa =  $request->input('nazwa');
+        $typySerwisu->cena = $request->input('cena');
         
-        $student->save();
+        $typySerwisu->save();
 
-        return redirect('/students');
+        return redirect('/cennik');
 	}
 
-	public function destroy($id)
+	public function TypSerwisu($id)
 	{		
-		$student = Student::find($id);		        
-        $student->delete();
+		$typySerwisu = TypSerwisu::find($id);		        
+        $typySerwisu->delete();
 
-        return redirect('/students');
+        return redirect('/cennik');
 	}
 
 

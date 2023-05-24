@@ -31,3 +31,9 @@ Route::get('/contact', [KontaktController::class, 'contact']);
 // cennik - TypySerwisu
 use App\Http\Controllers\TypSerwisuController; 
 Route::get('/cennik', [TypSerwisuController::class, 'showAll']);
+Route::post('/cennik/edit/{id}', [TypSerwisuController::class, 'edit']);
+Route::post('/cennik/update/{id}', [TypSerwisuController::class, 'update'])->name('updateCennik');
+Route::get('/cennik/destroy/{id}', [TypSerwisuController::class, 'destroy']);
+// klient - login
+use App\Http\Controllers\KlientController; 
+Route::get('/login', [KlientController::class, 'showAll']);
