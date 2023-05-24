@@ -16,8 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//strona startowa
 use App\Http\Controllers\StartController; 
 Route::get('/', StartController::class);
+// opisy do stron galeria & historia
 use App\Http\Controllers\OpisyController; 
 Route::get('/galeria', [OpisyController::class, 'galeria']);
 Route::get('/historia', [OpisyController::class, 'historia']);
+// kontakt
+use App\Http\Controllers\KontaktController; 
+Route::get('/kontakt', [KontaktController::class, 'kontakt']);
+//wynik wyslania formy kontaktowej
+Route::get('/contact', [KontaktController::class, 'contact']);
+// cennik - TypySerwisu
+use App\Http\Controllers\TypSerwisuController; 
+Route::get('/cennik', [TypSerwisuController::class, 'showAll']);
