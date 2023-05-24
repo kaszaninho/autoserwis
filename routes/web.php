@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-use App\Http\Controllers\Start; 
-Route::get('/', Start::class);
-use App\Http\Controllers\Opisy; 
-Route::get('/galeria', [Opisy::class, 'galeria']);
-Route::get('/historia', [Opisy::class, 'historia']);
+use App\Http\Controllers\StartController; 
+Route::get('/', StartController::class);
+use App\Http\Controllers\OpisyController; 
+Route::get('/galeria', [OpisyController::class, 'galeria']);
+Route::get('/historia', [OpisyController::class, 'historia']);
