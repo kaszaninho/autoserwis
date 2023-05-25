@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 class OpisyController extends Controller
 {
     public function galeria(){
-        return view('galeria');
+        return view('opisowe.galeria');
     }
     public function historia(){
-        return view('historia');
+        return view('opisowe.historia');
     }
 }

@@ -9,6 +9,7 @@
 <h2>Lista Serwisowa - Cennik</h2>
 
 <form method='POST'>
+	@csrf
     <table border="1" style="text-align:center">
         <tr>
             @foreach($naglowki as $naglowek)
@@ -24,13 +25,13 @@
 			@foreach($serwis->getAttributes() as $p=>$pole)
 				@if($p == 'id') <td>{{$pole}}</td>	@endif 
 				@if($p == 'nazwa') <td>{{$pole}}</td>	@endif
-				@if($p == 'cena') <td>{{$pole}}</td>	@endif
-				@endforeach	
+				@if($p == 'cena') <td>{{$pole}} zł</td>	@endif
+			@endforeach	
                  
-                    <td align="center">
-					<input class="submit" type="submit" value="Edytuj" onClick="action='/cennik/edit/{{$serwis->id}}'">
-                    <input class="submit" type="submit" value="Usuń" onClick="action='/cennik/destroy/{{$serwis->id}}'">
-                    </td>
+            <td align="center">
+			<input class="submit" type="submit" value="Edytuj" onClick="action='/cennik/edit/{{$serwis->id}}'">
+            <input class="submit" type="submit" value="Usuń" onClick="action='/cennik/destroy/{{$serwis->id}}'">
+            </td>
                 
             </tr>
         @endforeach

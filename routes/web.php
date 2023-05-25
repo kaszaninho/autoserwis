@@ -27,13 +27,13 @@ Route::get('/historia', [OpisyController::class, 'historia']);
 use App\Http\Controllers\KontaktController; 
 Route::get('/kontakt', [KontaktController::class, 'kontakt']);
 //wynik wyslania formy kontaktowej
-Route::get('/contact', [KontaktController::class, 'contact']);
+Route::post('/contact', [KontaktController::class, 'sendEmail'])->name('dodanyKontakt');
 // cennik - TypySerwisu
 use App\Http\Controllers\TypSerwisuController; 
 Route::get('/cennik', [TypSerwisuController::class, 'showAll']);
 Route::post('/cennik/edit/{id}', [TypSerwisuController::class, 'edit']);
 Route::post('/cennik/update/{id}', [TypSerwisuController::class, 'update'])->name('updateCennik');
-Route::get('/cennik/destroy/{id}', [TypSerwisuController::class, 'destroy']);
+Route::post('/cennik/destroy/{id}', [TypSerwisuController::class, 'destroy']);
 // klient - login
 use App\Http\Controllers\KlientController; 
 Route::get('/login', [KlientController::class, 'showAll']);

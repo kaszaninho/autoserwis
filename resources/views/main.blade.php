@@ -5,13 +5,10 @@
  */
   
  ?>
-  
-  <!DOCTYPE html>
-  
- <html>
  
+  <!DOCTYPE html>
+ <html>
    <head>
-   
    <meta charset="utf-8"/>
 		   <link rel="icon" href="css/fontello/autko.png" sizes="302x192" /><!--ikona w nowym tabie-->
 		 <link rel="stylesheet" type="text/css" href="css/start.css"><!--style sheet-->

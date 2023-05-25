@@ -32,7 +32,7 @@ class TypSerwisuController extends Controller
         return redirect('/cennik');
 	}
 
-	public function TypSerwisu($id)
+	public function destroy($id)
 	{		
 		$typySerwisu = TypSerwisu::find($id);		        
         $typySerwisu->delete();
