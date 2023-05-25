@@ -4,17 +4,26 @@
 <p>Masz jakieś pytania? / Potrzebujesz pomocy?<br>
 		Zadaj nam jakieś pytanie skontakujemy się z Tobą najszybciej jak będziemy mogli.<br>
 		<h2>Formularz Kontaktowy</h2>
-		<form class ="form" method=POST action="{{route('dodanyKontakt')}}"> 
+		<form class ="form" method=GET action="{{route('kontaktWalidacja')}}"> 
 		@csrf
+			@if ($errors->any())
+    			<div class="alert alert-danger">
+        			<ul>
+            			@foreach ($errors->all() as $error)
+                			<li>{{ $error }}</li>
+            			@endforeach
+        			</ul>
+   				</div>
+			@endif
 			 <b>Imię i Nazwisko  
 			<input type="text" name="Name" placeholder="imie i nazwisko"  ><br><br>
 			<label><b>Email</label>  
 			<input type="email" name="Email" placeholder="email"   ><br><br>
 			<label><b>Telefon</b></label>  
-			<input type="text" name='Telefon' placeholder="Telefon" pattern="[0-9]{6,}" required><br>
+			<input type="text" name='Telefon' placeholder="Telefon" pattern="[0-9]{6,}"  ><br>
 			<span id='tel_info'>* Telefon powinien skadać się przynajmniej z 6 cyfr</span><br><br>
 			<label><b>Wiadomość</label> <br> 
-			<textarea type="text"id='textField 'name="Message" placeholder="Tutaj wpisz treść" pattern="[A-Z a-z-*/+0-9]{6,}"  required></textarea><br> <br>
+			<textarea type="text"id='textField 'name="Message" placeholder="Tutaj wpisz treść" pattern="[A-Z a-z-*/+0-9]{6,}"   ></textarea><br> <br>
 			<input class ="submit" type="submit" value="Wyślij Wiadomość" >
 			 
 		</form>

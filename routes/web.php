@@ -26,8 +26,9 @@ Route::get('/historia', [OpisyController::class, 'historia']);
 // kontakt
 use App\Http\Controllers\KontaktController; 
 Route::get('/kontakt', [KontaktController::class, 'kontakt']);
+Route::get('/kontaktWalidacja', [KontaktController::class, 'kontaktWalidacja'])->name('kontaktWalidacja');
 //wynik wyslania formy kontaktowej
-Route::post('/contact', [KontaktController::class, 'sendEmail'])->name('dodanyKontakt');
+Route::post('/contact', [KontaktController::class, 'sendEmail']) ;
 // cennik - TypySerwisu
 use App\Http\Controllers\TypSerwisuController; 
 Route::get('/cennik', [TypSerwisuController::class, 'showAll']);
@@ -37,3 +38,4 @@ Route::post('/cennik/destroy/{id}', [TypSerwisuController::class, 'destroy']);
 // klient - login
 use App\Http\Controllers\KlientController; 
 Route::get('/login', [KlientController::class, 'showAll']);
+Route::get('/loginWalidacja', [KlientController::class, 'login'])->name('login');

@@ -10,6 +10,17 @@ class KontaktController extends Controller
 		
 		return view("kontakt.kontakt");
 	}
+    public function kontaktWalidacja(Request $request) {		
+	 
+		$validated = $request->validate([
+			'Name' => 'required |max:255',
+			'Email' => 'required | email',
+			'Telefon' => 'required|numeric|max:255',
+			'Message' => 'required',
+		]);
+ 
+		 return view('kontakt.contact');
+	} 
     public function sendEmail( )
     {
         
