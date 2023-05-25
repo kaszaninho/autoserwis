@@ -39,3 +39,6 @@ Route::post('/cennik/destroy/{id}', [TypSerwisuController::class, 'destroy']);
 use App\Http\Controllers\KlientController; 
 Route::get('/login', [KlientController::class, 'showAll']);
 Route::get('/loginWalidacja', [KlientController::class, 'login'])->name('login');
+// klient - rejestracja
+Route::get('/register', [KlientController::class, 'register']);
+Route::get('/registerWalidacja', [KlientController::class, 'registerWalidacja'])->name('register');

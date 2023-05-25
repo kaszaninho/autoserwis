@@ -60,7 +60,7 @@
 			 } 
 			 
 			 if(!isset($_SESSION['login'])){ ?>
-					 <ul><li><a href="/rejestracja">Zarejestruj</a></li>
+					 <ul><li><a href="/register">Zarejestruj</a></li>
 			 <?php 
 			 }						
 			 else{ ?>

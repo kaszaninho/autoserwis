@@ -6,9 +6,10 @@ use App\Models\Klient;
 
 class KlientController extends Controller
 {
-	public function showAll( ) {		
-	 
- 
+			//dostep do bazy sprawdzenie -> czyli jeszcze jeden endpoint	
+
+	public function showAll( ) {	
+
 		 return view('klienci.showAll'); 
 	}
 	public function login(Request $request) {		
@@ -20,4 +21,21 @@ class KlientController extends Controller
  		
 		 return view('/');
 	} 
+	public function register( ) {	
+		//dostep do bazy i zapis -> czyli jeszcze jeden endpoint	
+		return view('klienci.register'); 
+   }
+   public function registerWalidacja(Request $request) {		
+	
+	   $validated = $request->validate([
+		'imie' => 'required',
+		'nazwisko' => 'required',
+		'email' => 'required|email',
+		'login' => 'required',
+		'haslo' => 'required | password',
+		'powtorzhaslo' => 'required',
+	   ]);
+		
+		return view('/');
+   } 
 }
