@@ -12,15 +12,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-use App\Http\Controllers\Start; 
-Route::get('/', Start::class);
+//strona startowa
+use App\Http\Controllers\StartController; 
+Route::get('/', StartController::class);
 Route::get('/', function () {
     return view('welcome');
 });
 
-//strona startowa
-use App\Http\Controllers\StartController; 
-Route::get('/', StartController::class);
+
 // opisy do stron galeria & historia
 use App\Http\Controllers\OpisyController; 
 Route::get('/galeria', [OpisyController::class, 'galeria']);
