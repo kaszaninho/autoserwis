@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Opisy extends Controller
+class OpisyController extends Controller
 {
     public function galeria(){
-        return view('galeria');
+        return view('opisowe.galeria');
     }
     public function historia(){
-        return view('historia');
+        return view('opisowe.historia');
     }
 }

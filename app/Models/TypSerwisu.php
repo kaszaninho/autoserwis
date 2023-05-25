@@ -10,4 +10,5 @@ class TypSerwisu extends Model
     //use HasFactory;
 	protected $fillable = ['id', 'nazwa', 'cena'];
 	protected $table = 'typySerwisu';
+	public $timestamps = false;
 }

@@ -5,13 +5,10 @@
  */
   
  ?>
-  
-  <!DOCTYPE html>
-  
- <html>
  
+  <!DOCTYPE html>
+ <html>
    <head>
-   
    <meta charset="utf-8"/>
 		   <link rel="icon" href="css/fontello/autko.png" sizes="302x192" /><!--ikona w nowym tabie-->
 		 <link rel="stylesheet" type="text/css" href="css/start.css"><!--style sheet-->
@@ -31,43 +28,43 @@
 		   <div class="nav"><!--menu główne rozwijane-->
 			 <ol>
 				 
-				 <li><a href="autor.php">Autor</a></li>
+				 <li><a href="/autor">Autor</a></li>
 				 <li><a href="/">Strona główna</a></li>
 				 <li><a href="/historia">Historia </a></li>
 				 <li><a href="/galeria">Galeria </a></li>
 				 <li><a>Naprawy</a>
 				 <ul>
-					 <li><a href="cennik.php">Cennik</a></li>
-					 <li><a href="naprawy.php">Twoja lista</a></li>
+					 <li><a href="/cennik">Cennik</a></li>
+					 <li><a href="/naprawy">Twoja lista</a></li>
 			 <?php
 			 if(!isset($_SESSION['admin'])){ ?>
-					 <li><a href="zglos.php">Zgłoś</a></li>
+					 <li><a href="/zglos">Zgłoś</a></li>
 					 <?php } ?>
 					 </ul>
 					 </li>
 			 <?php
 			 if(!isset($_SESSION['admin'])){ ?>
-					 <li><a href="kontakt.php">Kontakt</a></li>
+					 <li><a href="/kontakt">Kontakt</a></li>
 					 <?php 
 			 }
  
 			 
 			 if(isset($_SESSION['imie'])){ ?>
-					 <li><a href="profil.php" id='login'>
+					 <li><a href="/profil" id='login'>
 					 <?php echo "Witaj ".$_SESSION['imie'];
 			 }
 			 else {?>		
-					 <li><a href="login.php" id='login'>
+					 <li><a href="/login" id='login'>
 					 <?php echo "Logowanie";
 					 $_SESSION['flaga'] = false; // zmienna odpowiedzialna za informacje o tym czy jest ktos zalogowany
 			 } 
 			 
 			 if(!isset($_SESSION['login'])){ ?>
-					 <ul><li><a href="rejestracja.php">Zarejestruj</a></li>
+					 <ul><li><a href="/register">Zarejestruj</a></li>
 			 <?php 
 			 }						
 			 else{ ?>
-					 <ul><li><a href="wyloguj.php" onClick="alert('Zostales wylogowany')">Wyloguj</a></li>
+					 <ul><li><a href="/wyloguj" onClick="alert('Zostales wylogowany')">Wyloguj</a></li>
 			 <?php } ?>
  
 					 </ul>
@@ -76,7 +73,7 @@
 		 </div>
 		 <div id="topbar">
 		 <div id = "logo">
-			 <a href= 'start.php'>
+			 <a href= '/'>
 			 <img id ="logogo"  src="images/kg_black.jpg"   >
 			 </a>
 		 </div>

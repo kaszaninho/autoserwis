@@ -12,15 +12,38 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-use App\Http\Controllers\Start; 
-Route::get('/', Start::class);
+//strona startowa
+use App\Http\Controllers\StartController; 
+Route::get('/', StartController::class);
 Route::get('/', function () {
     return view('welcome');
 });
 
-use App\Http\Controllers\Opisy; 
-Route::get('/galeria', [Opisy::class, 'galeria']);
-Route::get('/historia', [Opisy::class, 'historia']);
+
+// opisy do stron galeria & historia
+use App\Http\Controllers\OpisyController; 
+Route::get('/galeria', [OpisyController::class, 'galeria']);
+Route::get('/historia', [OpisyController::class, 'historia']);
+// kontakt
+use App\Http\Controllers\KontaktController; 
+Route::get('/kontakt', [KontaktController::class, 'kontakt']);
+Route::get('/kontaktWalidacja', [KontaktController::class, 'kontaktWalidacja'])->name('kontaktWalidacja');
+//wynik wyslania formy kontaktowej
+Route::post('/contact', [KontaktController::class, 'sendEmail']) ;
+// cennik - TypySerwisu
+use App\Http\Controllers\TypSerwisuController; 
+Route::get('/cennik', [TypSerwisuController::class, 'showAll']);
+Route::post('/cennik/edit/{id}', [TypSerwisuController::class, 'edit']);
+Route::post('/cennik/update/{id}', [TypSerwisuController::class, 'update'])->name('updateCennik');
+Route::post('/cennik/destroy/{id}', [TypSerwisuController::class, 'destroy']);
+// klient - login
+use App\Http\Controllers\KlientController; 
+Route::get('/login', [KlientController::class, 'showAll']);
+Route::get('/loginWalidacja', [KlientController::class, 'login'])->name('login');
+// klient - rejestracja
+Route::get('/register', [KlientController::class, 'register']);
+Route::get('/registerWalidacja', [KlientController::class, 'registerWalidacja'])->name('register');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -33,3 +56,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
