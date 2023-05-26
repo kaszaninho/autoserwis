@@ -31,31 +31,30 @@
         <li><a href="/">Strona główna</a></li>
         <li><a href="/historia">Historia </a></li>
         <li><a href="/galeria">Galeria </a></li>
-
         <li><a>Naprawy</a>
-            <ul>
-                <li><a href="/cennik">Cennik</a></li>
-                <li><a href="/naprawy">Twoja lista</a></li>
- 
-                <li><a href="/zglos">Zgłoś</a></li>
- 
-            </ul>
+        <ul>
+            <li><a href="/cennik">Cennik</a></li>
+            <li><a href="/naprawy">Twoja lista</a></li>
+            <li><a href="/zglos">Zgłoś</a></li>    
+        </ul>
         </li>
         <li><a href="/kontakt">Kontakt</a></li>
 		@auth
-        <li><a href="/klienci">Klienci</a>  </li>
+        <li><a href="/klienci">Klienci</a></li>
         <li><a>{{ Auth::user()->name }}</a>  
 		<ul>
 		<li><a href="/profile">Profil</a>  </li>	
-		<li><form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Wyloguj') }}
-                            </x-dropdown-link>
-                        </form></li> 
-			</li>
+		<li>
+		<form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <x-dropdown-link :href="route('logout')"
+                onclick="event.preventDefault();
+                this.closest('form').submit();">
+                {{ __('Wyloguj') }}
+                </x-dropdown-link>
+        </form>
+		</li> 
+		</li>
         </ul>
         @endauth
 
