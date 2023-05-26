@@ -6,15 +6,7 @@
 		<h2>Formularz Kontaktowy</h2>
 		<form class ="form" method=GET action="{{route('kontaktWalidacja')}}"> 
 		@csrf
-			@if ($errors->any())
-    			<div class="alert alert-danger">
-        			<ul>
-            			@foreach ($errors->all() as $error)
-                			<li>{{ $error }}</li>
-            			@endforeach
-        			</ul>
-   				</div>
-			@endif
+			 
 			 <b>Imię i Nazwisko  
 			<input type="text" name="Name" placeholder="imie i nazwisko"  ><br><br>
 			<label><b>Email</label>  

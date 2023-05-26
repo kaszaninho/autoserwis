@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //strona startowa
-use App\Http\Controllers\StartController; 
-Route::get('/', StartController::class);
+
 Route::get('/', function () {
     return view('welcome');
 });
-
+use App\Http\Controllers\StartController; 
+Route::get('/', StartController::class);
 
 // opisy do stron galeria & historia
 use App\Http\Controllers\OpisyController; 
@@ -36,13 +36,7 @@ Route::get('/cennik', [TypSerwisuController::class, 'showAll']);
 Route::post('/cennik/edit/{id}', [TypSerwisuController::class, 'edit']);
 Route::post('/cennik/update/{id}', [TypSerwisuController::class, 'update'])->name('updateCennik');
 Route::post('/cennik/destroy/{id}', [TypSerwisuController::class, 'destroy']);
-// klient - login
-use App\Http\Controllers\KlientController; 
-Route::get('/login', [KlientController::class, 'showAll']);
-Route::get('/loginWalidacja', [KlientController::class, 'login'])->name('login');
-// klient - rejestracja
-Route::get('/register', [KlientController::class, 'register']);
-Route::get('/registerWalidacja', [KlientController::class, 'registerWalidacja'])->name('register');
+ 
 
 
 Route::get('/dashboard', function () {
