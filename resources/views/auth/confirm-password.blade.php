@@ -1,3 +1,5 @@
+@extends('main')
+@section('content')
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600">
         {{ __('Proszę potwierdzić hasło przed kontynuacją.') }}
@@ -33,3 +35,4 @@
         </div>
     </form>
 </x-guest-layout>
+@endsection

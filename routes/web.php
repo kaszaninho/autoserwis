@@ -36,13 +36,20 @@ Route::get('/cennik', [TypSerwisuController::class, 'showAll']);
 Route::post('/cennik/edit/{id}', [TypSerwisuController::class, 'edit']);
 Route::post('/cennik/update/{id}', [TypSerwisuController::class, 'update'])->name('updateCennik');
 Route::post('/cennik/destroy/{id}', [TypSerwisuController::class, 'destroy']);
- 
+//KLient
+use App\Http\Controllers\KlientController; 
+Route::get('/klienci', [KlientController::class, 'showAll']);
+Route::post('/klienci/edit/{id}', [KlientController::class, 'edit']);
+Route::post('/klienci/update/{id}', [KlientController::class, 'update']) 
+-> name('updateKlient');
+Route::post('/klienci/destroy/{id}', [KlientController::class, 'destroy']);
 
-
+//Autentykacja - Laravel (login, rejestracja) 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
+//profil ??
+use App\Http\Controllers\ProfileController; 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -50,4 +57,5 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
 

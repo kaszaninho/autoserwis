@@ -43,9 +43,10 @@
         </li>
         <li><a href="/kontakt">Kontakt</a></li>
 		@auth
-        <li><a href="/klienci">Dodaj Klienta</a>  </li>
+        <li><a href="/klienci">Klienci</a>  </li>
         <li><a>{{ Auth::user()->name }}</a>  
 		<ul>
+		<li><a href="/profile">Profil</a>  </li>	
 		<li><form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <x-dropdown-link :href="route('logout')"

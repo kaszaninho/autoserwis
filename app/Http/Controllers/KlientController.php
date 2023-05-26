@@ -6,36 +6,35 @@ use App\Models\Klient;
 
 class KlientController extends Controller
 {
-			//dostep do bazy sprawdzenie -> czyli jeszcze jeden endpoint	
-
+			 
 	public function showAll( ) {	
-
-		 return view('klienci.showAll'); 
+		$klient = Klient::all();
+		 return view('klienci.showAll', ['klienci'=>$klient]);
 	}
-	public function login(Request $request) {		
-	 
-		$validated = $request->validate([
-			'login' => 'required |max:255',
-			'haslo' => 'required | min:5',
-		]);
- 		
-		 return view('/');
-	} 
-	public function register( ) {	
-		//dostep do bazy i zapis -> czyli jeszcze jeden endpoint	
-		return view('klienci.register'); 
-   }
-   public function registerWalidacja(Request $request) {		
-	
-	   $validated = $request->validate([
-		'imie' => 'required',
-		'nazwisko' => 'required',
-		'email' => 'required|email',
-		'login' => 'required',
-		'haslo' => 'required | password',
-		'powtorzhaslo' => 'required',
-	   ]);
+	public function edit($id)
+	{
+		if($id != -1) $klient = Klient::find($id);
+		else $klient = new Klient(['id'=>-1, 'imie'=>'', 'nazwisko'=>'', 'email' =>'']);
+
+        return view('klienci.edit', ['klient'=>$klient]);  
+	}
+	public function update(Request $request, $id)
+	{		
 		
-		return view('/');
-   } 
+        if($id != -1) $klient = Klient::find($id);
+		else $klient = new Klient();
+        $klient->imie =  $request->input('imie');
+        $klient->nazwisko = $request->input('nazwisko');
+		$klient->email = $request->input('email'); 
+        $klient->save();
+
+        return redirect('/klienci');
+	}
+	public function destroy($id)
+	{		
+		$klient = Klient::find($id);		        
+        $klient->delete();
+
+        return redirect('/klienci');
+	}
 }
