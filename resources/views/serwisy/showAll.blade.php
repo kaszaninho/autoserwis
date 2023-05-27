@@ -1,13 +1,15 @@
 @section('content')
 @extends('main')
-						 		
+<div style="display: flex; justify-content: center;">
+  <img id="logo" src="{{ asset('images/KBlogo.png')}}" alt="Logo">
+</div>						 		
  
 @php
     $naglowki = array("Numer", "Data Wykonania", "Cena");
     @endphp
-
-
-    <br><b>Historia serwisów samochodu {{$samochod->marka}} {{$samochod->model}} <br>o numerze rejestracyjnym {{$samochod->nrRejestracyjny}}</b><br>
+    <br>
+    <h2><b>Historia serwisów<br></h2>
+     Samochód {{$samochod->marka}} {{$samochod->model}} <br>Rejestra {{$samochod->nrRejestracyjny}}</b><br><br>
     <table border = 1><tr>
     @foreach($naglowki as $naglowek) <td><b>{{$naglowek}}</b></td> @endforeach
     </tr>
@@ -29,5 +31,6 @@
             </tr>	            
     @endforeach
     </table>
-
+    <br>
+<a href="javascript:void(0)" onclick="history.back()">Powrót</a>
     @endsection

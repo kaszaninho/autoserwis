@@ -1,5 +1,9 @@
 @section('content')
 @extends('main')					 		
+<div style="display: flex; justify-content: center;">
+  <img id="logo" src="{{ asset('images/KBlogo.png')}}" alt="Logo">
+</div>
+<h2> Pojazdy</h2>
  
 @php
     $naglowki = array("Numer", "Marka", "Model", "Nr Rej");  
@@ -7,14 +11,21 @@
 @endphp
 
 @if($samochody->count() == 0)
-    Brak samochodów dla tego klienta!
+<b><p style="color: red;">Brak samochodów dla tego klienta!</p></b>
+<form method='POST' action='/samochody/edit/-1'>
+@csrf
+<input type=hidden name='idklienta' value="{{$klient->id}}">
+<b><input class="submit" type="submit" value="Dodaj Pojazd"  ></b><br>
+    <a href="javascript:void(0)" onclick="history.back()">Powrót</a>
+</form>
 @else
-<form method='GET'>
+    <form method='POST'>
+    @csrf
     <br><b>Samochody klienta {{$klient->imie}} {{$klient->nazwisko}}</b><br>
     <input type=hidden name='idklienta' value="{{$klient->id}}">
     <table border = 1><tr>
     @foreach($naglowki as $naglowek) <td><b>{{$naglowek}}</b></td> @endforeach
-    <td align='center'><b><input class="submit" type="submit" value="Dodaj nowego" onClick="action='/samochody/edit/-1'"></b></td>
+    <td align='center'><b><input class="submit" type="submit" value="Dodaj Pojazd" onClick="action='/samochody/edit/-1'"></b></td>
     </tr>
     @foreach($samochody as $samochod)
             <tr>
@@ -33,15 +44,22 @@
                         @case('nrRejestracyjny')
                             <td>{{$pole}}</td> 
                             @break
-                    @endswitch            
+                    @endswitch     
+                    </form>       
             @endforeach	
-            <td ><input type='submit' value='Edytuj' onClick="action='/samochody/edit/{{$samochod->id}}'">
-                        <input type='submit' value='Usun' onClick="action='/samochody/edit/{{$samochod->id}}'"></td>	
-        </tr>	
+            <td >
+            <form method='POST'>  
+            @csrf  
+            <input type='submit' class ="submit" value='Edytuj' onClick="action='/samochody/edit/{{$samochod->id}}'">
+            </form>
+            <form method='GET'>            
+            <input type='submit' class ="submit" value='Usun' onClick="action='/samochody/destroy/{{$samochod->id}}'"></td>	
+            </form>    
+            </tr>	
     
     @endforeach
     </table>
-</form>
+
     <h2>Wybierz samochód</h2>
     <form method="GET" action="/serwisy">
     @csrf

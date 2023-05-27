@@ -4,6 +4,15 @@
 <p>Masz jakieś pytania? / Potrzebujesz pomocy?<br>
 		Zadaj nam jakieś pytanie skontakujemy się z Tobą najszybciej jak będziemy mogli.<br>
 		<h2>Formularz Kontaktowy</h2>
+		@if ($errors->any())
+    		<div style="color: red;">
+        		<ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        		</ul>
+    		</div>
+		@endif
 		<form class ="form" method=GET action="{{route('kontaktWalidacja')}}"> 
 		@csrf
 			 
@@ -12,7 +21,7 @@
 			<label><b>Email</label>  
 			<input type="email" name="Email" placeholder="email"   ><br><br>
 			<label><b>Telefon</b></label>  
-			<input type="text" name='Telefon' placeholder="Telefon" pattern="[0-9]{6,}"  ><br>
+			<input type="text" name='Telefon' placeholder="Telefon"   ><br>
 			<span id='tel_info'>* Telefon powinien skadać się przynajmniej z 6 cyfr</span><br><br>
 			<label><b>Wiadomość</label> <br> 
 			<textarea type="text"id='textField 'name="Message" placeholder="Tutaj wpisz treść" pattern="[A-Z a-z-*/+0-9]{6,}"   ></textarea><br> <br>

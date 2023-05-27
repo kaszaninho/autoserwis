@@ -1,20 +1,33 @@
  
 @extends('main')
-@section('content') 		
+@section('content') 	
  
+<div style="display: flex; justify-content: center;">
+  <img id="logo" src="{{ asset('images/KBlogo.png')}}" alt="Logo">
+</div>
+ <h2> Stwórz / Edytuj Cenę</h2>
+ @if ($errors->any())
+    <div style="color: red;">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form method="POST" action="{{route('updateCennik', $typyserwisu->id)}}"> 
     	@csrf
     <table border="0">
         <tr>
-            <td>nazwa</td>
+            <td><b>Serwis</b></td>
             <td colspan="2">
-                <input type="text" name="nazwa" required value="{{$typyserwisu->nazwa}}" size="15" style="text-align: left">
+                <input type="text" name="nazwa"   value="{{$typyserwisu->nazwa}}" size="15" style="text-align: left">
             </td>
         </tr>
         <tr>
-            <td>cena</td>
+            <td><b>Cena</b></td>
             <td colspan="2">
-                <input type="number" name="cena" required min="10" value=" {{$typyserwisu->cena}} " size="15" style="text-align: left">
+                <input type="number" name="cena"  value=" {{$typyserwisu->cena}} " size="15" style="text-align: left">
             </td>
         </tr>
         <tr>
@@ -24,7 +37,7 @@
         </tr>
     </table>
 </form>
-
- 
+<br>
+<a href="javascript:void(0)" onclick="history.back()">Powrót</a>
  
 @endsection
