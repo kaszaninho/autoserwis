@@ -32,5 +32,9 @@ class DataSeeder extends Seeder
         DB::table('typySerwisu')->insert([ ['nazwa'=>'wymiana oleju', 'cena'=>'100'],
                                             ['nazwa'=>'wymiania rozrządu', 'cena'=>'1800']  
                             ]);
+        DB::table('users')->insert([ ['name'=>'Bartosz Waśko', 'email'=>'sexiflexi@gmail.com','username'=>'barty', 'password'=>'$2y$10$i/Hf4Mu9xyAl.oPP/mdGk.t35oKObd7mivgzS60xuLASMRDJIDNnG'],
+        ['name'=>'Krzysztof Gajdosz', 'email'=>'confesor123@gmail.com','username'=>'kgajdosz', 'password'=>'$2y$10$i/Hf4Mu9xyAl.oPP/mdGk.t35oKObd7mivgzS60xuLASMRDJIDNnG']
+ 
+            ]);
     }
 }

@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Profile Information') }}
+            {{ __('Dane Profilowe') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("Tutaj możesz zmienić swoje dane.") }}
         </p>
     </header>
 
@@ -46,9 +46,9 @@
                 </div>
             @endif
         </div>
-
+<br>
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button  class="submit">{{ __('Zapisz') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p

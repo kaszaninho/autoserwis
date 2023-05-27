@@ -12,15 +12,15 @@ class TypSerwisuController extends Controller
 		return view('typySerwisu.showAll', ['typyserwisu'=>$typyserwisu]);
 	}
 
-	public function edit($id)
+	public function editCennik($id)
 	{
-		if($id != -1) $typySerwisu = TypSerwisu::find($id);
-		else $typySerwisu = new TypSerwisu(['id'=>-1, 'nazwa'=>'', 'cena'=>'']);
+		if($id != -1) $typyserwisu = TypSerwisu::find($id);
+		else $typyserwisu = new TypSerwisu(['id'=>-1, 'nazwa'=>'', 'cena'=>'']);
 
-        return view('typySerwisu.edit', ['typySerwisu'=>$typySerwisu]);  
+        return view('typySerwisu.edit', ['typyserwisu'=>$typyserwisu]);  
 	}
 
-	public function update(Request $request, $id)
+	public function update2(Request $request, $id)
 	{			
         if($id != -1) $typySerwisu = TypSerwisu::find($id);
 		else $typySerwisu = new TypSerwisu();
