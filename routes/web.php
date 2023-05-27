@@ -40,7 +40,6 @@ Route::get('/cennik/destroy/{id}', [TypSerwisuController::class, 'destroy']);
 // naprawy 
 use App\Http\Controllers\NaprawyController; 
 Route::get('/naprawy', [NaprawyController::class, 'showAll']);
-Route::get('/serwis/{id}', [NaprawyController::class, 'showAllthree']);
 use App\Http\Controllers\SamochodController; 
 Route::get('/samochody', [SamochodController::class, 'showAll']);
 Route::get('/samochody/edit/{id}', [SamochodController::class, 'edit']);

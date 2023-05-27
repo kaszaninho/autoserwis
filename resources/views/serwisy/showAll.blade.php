@@ -29,6 +29,5 @@
             </tr>	            
     @endforeach
     </table>
-    </form>
 
     @endsection
