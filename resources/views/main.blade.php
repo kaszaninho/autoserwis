@@ -10,18 +10,17 @@
  <html>
    <head>
    <meta charset="utf-8"/>
-		   <link rel="icon" href="css/fontello/autko.png" sizes="302x192" /><!--ikona w nowym tabie-->
-		 <link rel="stylesheet" type="text/css" href="css/start.css"><!--style sheet-->
+		   <link rel="icon" href="{{ asset('css/fontello/autko.png') }}" sizes="302x192" /><!--ikona w nowym tabie-->
+		 <link rel="stylesheet" type="text/css" href="{{ asset('css/start.css') }}"><!--style sheet-->
 		 <link href="https://fonts.googleapis.com/css?family=Akronim|Josefin+Sans|Lato|Libre+Barcode+39+Text|Permanent+Marker|Shadows+Into+Light" rel="stylesheet">	<!-- fonty-->
-		 <link rel="stylesheet" href="css/fontello/css/gajdi.css" type="text/css" /><!--fajne ikonki/fontki-->
+		 <link rel="stylesheet" href="{{ asset('css/fontello/css/gajdi.css') }}" type="text/css" /><!--fajne ikonki/fontki-->
 		 <link type="text/javascript" src="js/lightbox-plus-jquery.min.js"/><!--dodatkowy skrypt do wyświetlania galerii-->	
-		 <link href="css/lightbox.min.css" rel="stylesheet" />		
+		 <link href="{{ asset('css/lightbox.min.css') }}" rel="stylesheet" />		
 		 <meta name ="description" content = "PHP&HMTL&CSS Project"/>
 		 <title>Auto Serwis</title>
 		 
-		 <script src="js/timer.js"></script><!--skrypt z zegarem -->
+		 <script src="{{ asset('js/timer.js') }}"></script><!--skrypt z zegarem -->
    </head>
-   <body>
  
    <body onload="odliczanie();"><!--wywołanie Javascript zegara-->
 	<div id="container">
@@ -74,9 +73,9 @@
 		 <div id="topbar">
 		 <div id = "logo">
 			 <a href= '/'>
-			 <img id ="logogo"  src="images/kg_black.jpg"   >
+			 <img id ="logogo"  src="{{ asset('images/kg_black.jpg') }}"   >
 			 </a>
-		 </div>
+			 </div>
 			 <div id="zegar" width="350">12:00:00</div>
 			 
 			 <div id = "kod" ><h3>KB-AutoSerwis.pl</h3></div>
@@ -85,7 +84,7 @@
  
 				   
 		 <div class="boki">		 
-		 <img id ="leftPic" src="images/AUTO_NIEBIESKIE.jpg">
+		 <img id ="leftPic" src="{{ asset('images/AUTO_NIEBIESKIE.jpg') }}">
 		 </div>
  
  <center>
@@ -103,10 +102,10 @@ Skrypt dodawany na końcu każdej podstrony - zawierająca elementy jak zdjęcia
  </div>	
 	</center>
 <div class="boki">
-		<img id ="rightPic" src="images/hotrod.jpg">
+		<img id ="rightPic" src="{{ asset('images/hotrod.jpg')}}">
 		</div>	
 		<div id ="footer" >
-	 	<img id ="foterpic" src="images/mustangs.jpg" >
+	 	<img id ="foterpic" src="{{ asset('images/mustangs.jpg')}}" >
 		<div class="rectangle">2023 &copy; KB Auto Serwis
 		<a  target="_blank" class="sociallink"><i class="icon-tools"></i></a>
 		</div>	
@@ -124,8 +123,8 @@ Skrypt dodawany na końcu każdej podstrony - zawierająca elementy jak zdjęcia
         Anuluj
       </button>
 </div>
-	<script src="js/cookieBanner.js"></script>
-	<script src="js/lightbox-plus-jquery.js"></script>
+	<script src="{{ asset('js/cookieBanner.js')}}"></script>
+	<script src="{{ asset('js/lightbox-plus-jquery.js')}}"></script>
    </body>
 </html>
   

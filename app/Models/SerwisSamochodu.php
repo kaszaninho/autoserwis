@@ -10,4 +10,8 @@ class SerwisSamochodu extends Model
 	//use HasFactory;
 	protected $fillable = ['id', 'idKlienta', 'idSamochodu', 'DataSerwisu', 'Cena'];
 	protected $table = 'serwisy';
+	
+	public function samochod() {
+		return $this->belongsTo(Samochod::class, 'idSamochodu');	
+	}	
 }

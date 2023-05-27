@@ -12,13 +12,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//strona startowa
-use App\Http\Controllers\StartController; 
-Route::get('/', StartController::class);
 Route::get('/', function () {
     return view('welcome');
 });
 
+//strona startowa
+use App\Http\Controllers\StartController; 
+Route::get('/', StartController::class);
 
 // opisy do stron galeria & historia
 use App\Http\Controllers\OpisyController; 
@@ -43,12 +43,24 @@ Route::get('/loginWalidacja', [KlientController::class, 'login'])->name('login')
 // klient - rejestracja
 Route::get('/register', [KlientController::class, 'register']);
 Route::get('/registerWalidacja', [KlientController::class, 'registerWalidacja'])->name('register');
+// naprawy 
+use App\Http\Controllers\NaprawyController; 
+Route::get('/naprawy', [NaprawyController::class, 'showAll']);
+Route::get('/serwis/{id}', [NaprawyController::class, 'showAllthree']);
+use App\Http\Controllers\SamochodController; 
+Route::get('/samochody', [SamochodController::class, 'showAll']);
+Route::get('/samochody/edit/{id}', [SamochodController::class, 'edit']);
+Route::post('/samochody/update/{id}', [SamochodController::class, 'update'])->name('updateSamochod');
+Route::get('/samochody/destroy/{id}', [SamochodController::class, 'destroy']);
+use App\Http\Controllers\SerwisController; 
+Route::get('/serwisy', [SerwisController::class, 'showAll']);
 
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+use App\Http\Controllers\ProfileController; 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
