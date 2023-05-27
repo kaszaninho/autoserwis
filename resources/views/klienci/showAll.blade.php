@@ -1,8 +1,11 @@
 @section('content')
     @extends('main')
+    <div style="display: flex; justify-content: center;">
+  <img id="logo" src="{{ asset('images/KBlogo.png')}}" alt="Logo">
+</div>
     <h2>Klienci</h2>
     @php $naglowki = array("Imię", "Nazwisko", "Email"); @endphp
-    <form action="/klienci " method="POST">
+    <form action="/klienci " method="GET">
  		<label for="filter">Filtruj:</label>
                     <input type="text" name="filter" id="filter" placeholder="Imię lub nazwisko">
                     <button class="submit" type="submit">Filtruj</button>
@@ -37,14 +40,13 @@
                     <form method='POST' action=" klienci/{{$klient->id}}">
                     @method('DELETE')
                     @csrf
-                    <input type='submit' value='Usun' class="submit">
-                                
-</form>
+                    <input type='submit' value='Usun' class="submit">        
+                    </form>
                     </td>
                 </tr>
             @endforeach
 
         </table>
-    </form>
+    
 
 @endsection

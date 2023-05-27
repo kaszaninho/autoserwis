@@ -20,25 +20,25 @@
             <input type=hidden name='idKlienta' value="{{$samochod->idKlienta}}">
             <td><b>Marka</b></td>
             <td colspan="2">
-                <input type="text" name="nazwa"   value="{{$samochod->nazwa}}" size="15" style="text-align: left">
+                <input type="text" name="marka"   value="{{$samochod->marka}}" size="15" style="text-align: left">
             </td>
         </tr>
         <tr>
             <td><b>Model</b></td>
             <td colspan="2">
-                <input type="text" name="model"   value=" {{$samochod->cena}} " size="15" style="text-align: left">
+                <input type="text" name="model"   value=" {{$samochod->model}} " size="15" style="text-align: left">
             </td>
         </tr>
         <tr>
             <td><b>Rocznik</b></td>
             <td colspan="2">
-                <input type="text" name="rocznik"   value=" {{$samochod->cena}} " size="15" style="text-align: left">
+                <input type="text" name="rocznik"   value=" {{$samochod->rocznik}} " size="15" style="text-align: left">
             </td>
         </tr>
         <tr>
             <td><b>Numer rejestracyjny</b></td>
             <td colspan="2">
-                <input type="text" name="nrRejestracyjny"   value=" {{$samochod->cena}} " size="15" style="text-align: left">
+                <input type="text" name="nrRejestracyjny"   value=" {{$samochod->nrRejestracyjny}} " size="15" style="text-align: left">
             </td>
         </tr>
         <tr>
@@ -50,6 +50,7 @@
 </form>
 
 <br>
-<a href="javascript:void(0)" onclick="history.back()">Powrót</a>
+<a href="{{ url()->previous() }}">Powrót</a>
+
 </div>
 @endsection

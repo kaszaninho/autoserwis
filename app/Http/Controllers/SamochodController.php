@@ -14,10 +14,11 @@ class SamochodController extends Controller
                 $klient = Klient::where('id', $klientId)->first();
                 return view('samochody.showAll', ['samochody' => $klient->samochody, 'klient' => $klient]);
         }
-        public function edit($id)
+        
+        public function edit($id, Request $request)
         {
         if($id != -1) $samochod = Samochod::find($id);
-        else $samochod = new Samochod(['id'=>-1, 'idKlienta'=> $request->$idklienta, 'marka'=>'', 'model'=>'', 'rocznik' => '', 'nrRejestracyjny' => '']);
+        else $samochod = new Samochod(['id'=>-1, 'idKlienta'=> $request->input('idklienta'), 'marka'=>'', 'model'=>'', 'rocznik' => '', 'nrRejestracyjny' => '']);
     
         return view('samochody.edit', compact('samochod'));  
         }
@@ -25,14 +26,15 @@ class SamochodController extends Controller
         public function update(Request $request, $id)
         {	
                 $validated = $request->validate([
-			'marka' => 'required |max:255|min:2 ',
+			 
 			'model' => 'required | max:255 |min:3',
 			'rocznik' => 'required|numeric|min:2',
 			'nrRejestracyjny' => 'required',
 		]);		
-                if($id != -1) $samochod = TypSerwisu::find($id);
+                if($id != -1) $samochod = Samochod::find($id);
                 else $samochod = Samochod::firstOrNew(
-                                ['idKlienta' => $request->input('idKlienta')]);
+                                ['id' => $id]);
+                $samochod->idKlienta =  $request->input('idKlienta');                
                 $samochod->marka =  $request->input('marka');
                 $samochod->model =  $request->input('model');
                 $samochod->rocznik =  $request->input('rocznik');
@@ -47,7 +49,7 @@ class SamochodController extends Controller
         {		
                 $samochod = Samochod::find($id);		        
                 $samochod->delete();
-        
-                return redirect('/naprawy');
+                $sam  = Klient::where('id', $klientId)->first();
+                return redirect('/samochody/{{$samochod->sam->id}}');
         }
 }

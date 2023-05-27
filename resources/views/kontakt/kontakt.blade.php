@@ -12,7 +12,7 @@
             @endforeach
         		</ul>
     		</div>
-@endif
+		@endif
 		<form class ="form" method=GET action="{{route('kontaktWalidacja')}}"> 
 		@csrf
 			 

@@ -27,7 +27,7 @@
 		</tr>
 		<tr>
 		<td><b>Email</b></td><td colspan=2>
-		<input type=text name='email' value='{{$klienci->email}}' size=15 style='text-align: left'></td>
+		<input type=text name='email' value='{{$klienci->adres_email}}' size=15 style='text-align: left'></td>
 		</tr>
 		<tr>
 		<td colspan=3 align='center'>		

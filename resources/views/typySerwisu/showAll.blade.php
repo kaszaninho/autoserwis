@@ -1,6 +1,8 @@
 @section('content')
 @extends('main')
-
+<div style="display: flex; justify-content: center;">
+  <img id="logo" src="{{ asset('images/KBlogo.png')}}" alt="Logo">
+</div>
 @php
     $flagaadmin = session('admin', false);
 @endphp
