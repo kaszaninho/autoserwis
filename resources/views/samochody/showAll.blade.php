@@ -62,13 +62,12 @@
 
     <h2>Wybierz samochód</h2>
     <form method="GET" action="/serwisy">
-    @csrf
     <select class='drop-down' name='wybranySamochod'>
     @if($wybranySamochod == 'noSelection')
         <option value='noSelection'>Wybierz z listy ...</option>"
     @endif  
     @foreach($samochody as $samochod)		
-            <option value="{{$samochod->id}}" {{ $wybranySamochod == $samochod ? 'selected' : '' }}>{{$samochod->marka}} {{$samochod->model}}</option>";    
+            <option value="{{$samochod->id}}">{{$samochod->marka}} {{$samochod->model}}</option>";    
     @endforeach
     </select>
     <input class ='submit' type=submit value="Pokaż Historię" id="wybierz">
