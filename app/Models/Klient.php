@@ -10,4 +10,9 @@ class Klient extends Model
     //use HasFactory;
 	protected $fillable = ['id', 'imie', 'nazwisko', 'adres_email'];
 	protected $table = 'klienci';
+	
+	public function samochody() {
+		return $this->hasMany(Samochod::class, 'idKlienta');
+	}
+	
 }

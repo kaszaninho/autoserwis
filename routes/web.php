@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 //strona startowa
 
 Route::get('/', function () {
@@ -36,6 +37,17 @@ Route::get('/cennik', [TypSerwisuController::class, 'showAll']);
 Route::get('/cennik/edit/{id}', [TypSerwisuController::class, 'edit']);
 Route::post('/cennik/update/{id}', [TypSerwisuController::class, 'update'])->name('updateCennik');
 Route::get('/cennik/destroy/{id}', [TypSerwisuController::class, 'destroy']);
+// naprawy 
+use App\Http\Controllers\NaprawyController; 
+Route::get('/naprawy', [NaprawyController::class, 'showAll']);
+Route::get('/serwis/{id}', [NaprawyController::class, 'showAllthree']);
+use App\Http\Controllers\SamochodController; 
+Route::get('/samochody', [SamochodController::class, 'showAll']);
+Route::get('/samochody/edit/{id}', [SamochodController::class, 'edit']);
+Route::post('/samochody/update/{id}', [SamochodController::class, 'update'])->name('updateSamochod');
+Route::get('/samochody/destroy/{id}', [SamochodController::class, 'destroy']);
+use App\Http\Controllers\SerwisController; 
+Route::get('/serwisy', [SerwisController::class, 'showAll']);
 //KLient
 use App\Http\Controllers\KlientController; 
 Route::resource('klienci', KlientController::class);
