@@ -12,11 +12,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+//strona startowa
+
 Route::get('/', function () {
     return view('welcome');
 });
-
-//strona startowa
 use App\Http\Controllers\StartController; 
 Route::get('/', StartController::class);
 
@@ -33,16 +34,9 @@ Route::post('/contact', [KontaktController::class, 'sendEmail']) ;
 // cennik - TypySerwisu
 use App\Http\Controllers\TypSerwisuController; 
 Route::get('/cennik', [TypSerwisuController::class, 'showAll']);
-Route::post('/cennik/edit/{id}', [TypSerwisuController::class, 'edit']);
+Route::get('/cennik/edit/{id}', [TypSerwisuController::class, 'edit']);
 Route::post('/cennik/update/{id}', [TypSerwisuController::class, 'update'])->name('updateCennik');
-Route::post('/cennik/destroy/{id}', [TypSerwisuController::class, 'destroy']);
-// klient - login
-use App\Http\Controllers\KlientController; 
-Route::get('/login', [KlientController::class, 'showAll']);
-Route::get('/loginWalidacja', [KlientController::class, 'login'])->name('login');
-// klient - rejestracja
-Route::get('/register', [KlientController::class, 'register']);
-Route::get('/registerWalidacja', [KlientController::class, 'registerWalidacja'])->name('register');
+Route::get('/cennik/destroy/{id}', [TypSerwisuController::class, 'destroy']);
 // naprawy 
 use App\Http\Controllers\NaprawyController; 
 Route::get('/naprawy', [NaprawyController::class, 'showAll']);
@@ -54,12 +48,15 @@ Route::post('/samochody/update/{id}', [SamochodController::class, 'update'])->na
 Route::get('/samochody/destroy/{id}', [SamochodController::class, 'destroy']);
 use App\Http\Controllers\SerwisController; 
 Route::get('/serwisy', [SerwisController::class, 'showAll']);
-
-
+//KLient
+use App\Http\Controllers\KlientController; 
+Route::resource('klienci', KlientController::class);
+Route::get('/klienci', [KlientController::class, 'filter']);
+//Autentykacja - Laravel (login, rejestracja) 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
+//profil  
 use App\Http\Controllers\ProfileController; 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -68,4 +65,5 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
 

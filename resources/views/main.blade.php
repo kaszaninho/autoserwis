@@ -24,52 +24,48 @@
  
    <body onload="odliczanie();"><!--wywołanie Javascript zegara-->
 	<div id="container">
-		   <div class="nav"><!--menu główne rozwijane-->
-			 <ol>
-				 
-				 <li><a href="/autor">Autor</a></li>
-				 <li><a href="/">Strona główna</a></li>
-				 <li><a href="/historia">Historia </a></li>
-				 <li><a href="/galeria">Galeria </a></li>
-				 <li><a>Naprawy</a>
-				 <ul>
-					 <li><a href="/cennik">Cennik</a></li>
-					 <li><a href="/naprawy">Twoja lista</a></li>
-			 <?php
-			 if(!isset($_SESSION['admin'])){ ?>
-					 <li><a href="/zglos">Zgłoś</a></li>
-					 <?php } ?>
-					 </ul>
-					 </li>
-			 <?php
-			 if(!isset($_SESSION['admin'])){ ?>
-					 <li><a href="/kontakt">Kontakt</a></li>
-					 <?php 
-			 }
- 
-			 
-			 if(isset($_SESSION['imie'])){ ?>
-					 <li><a href="/profil" id='login'>
-					 <?php echo "Witaj ".$_SESSION['imie'];
-			 }
-			 else {?>		
-					 <li><a href="/login" id='login'>
-					 <?php echo "Logowanie";
-					 $_SESSION['flaga'] = false; // zmienna odpowiedzialna za informacje o tym czy jest ktos zalogowany
-			 } 
-			 
-			 if(!isset($_SESSION['login'])){ ?>
-					 <ul><li><a href="/register">Zarejestruj</a></li>
-			 <?php 
-			 }						
-			 else{ ?>
-					 <ul><li><a href="/wyloguj" onClick="alert('Zostales wylogowany')">Wyloguj</a></li>
-			 <?php } ?>
- 
-					 </ul>
-				 </li>
-			 </ol>
-		 </div>
+	<div class="nav">
+    <!-- Menu główne rozwijane -->
+    <ol>
+        <li><a href="/">Strona główna</a></li>
+        <li><a href="/historia">Historia </a></li>
+        <li><a href="/galeria">Galeria </a></li>
+        <li><a>Naprawy</a>
+        <ul>
+            <li><a href="/cennik">Cennik</a></li>
+            <li><a href="/naprawy">Twoja lista</a></li>
+            <li><a href="/zglos">Zgłoś</a></li>    
+        </ul>
+        </li>
+        <li><a href="/kontakt">Kontakt</a></li>
+		@auth
+        <li><a href="/klienci">Klienci</a></li>
+        <li><a>{{ Auth::user()->name }}</a>  
+		<ul>
+		<li><a href="/profile">Profil</a>  </li>	
+		<li>
+		<form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <x-dropdown-link :href="route('logout')"
+                onclick="event.preventDefault();
+                this.closest('form').submit();">
+                {{ __('Wyloguj') }}
+                </x-dropdown-link>
+        </form>
+		</li> 
+		</li>
+        </ul>
+        @endauth
+
+		@guest
+        <li><a href="/login" id="login">Logowanie</a>
+            <ul>
+			<li><a href="/register">Zarejestruj</a></li>
+            </ul>
+        </li>
+        @endguest
+    </ol>
+</div>
 		 <div id="topbar">
 		 <div id = "logo">
 			 <a href= '/'>
