@@ -33,8 +33,7 @@
         <li><a>Naprawy</a>
         <ul>
             <li><a href="/cennik">Cennik</a></li>
-            <li><a href="/naprawy">Twoja lista</a></li>
-            <li><a href="/zglos">Zgłoś</a></li>    
+            <li><a href="/naprawy">Twoja lista</a></li>   
         </ul>
         </li>
         <li><a href="/kontakt">Kontakt</a></li>
