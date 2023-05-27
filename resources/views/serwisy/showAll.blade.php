@@ -29,5 +29,9 @@
             </tr>	            
     @endforeach
     </table>
+<br/>
+<form method="GET" action="{{route('newSerwis', $samochod->id)}}">
+    <input type=submit value='Zgłoś nowy serwis'/>
+</form>
 
     @endsection

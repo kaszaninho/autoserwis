@@ -45,8 +45,11 @@ Route::get('/samochody', [SamochodController::class, 'showAll']);
 Route::get('/samochody/edit/{id}', [SamochodController::class, 'edit']);
 Route::post('/samochody/update/{id}', [SamochodController::class, 'update'])->name('updateSamochod');
 Route::get('/samochody/destroy/{id}', [SamochodController::class, 'destroy']);
+// Serwis
 use App\Http\Controllers\SerwisController; 
 Route::get('/serwisy', [SerwisController::class, 'showAll']);
+Route::get('/serwisy/{id}', [SerwisController::class, 'newSerwis'])->name('newSerwis');
+Route::post('/serwisy/{id}', [SerwisController::class, 'update'])->name('updateSerwis');
 //KLient
 use App\Http\Controllers\KlientController; 
 Route::resource('klienci', KlientController::class);

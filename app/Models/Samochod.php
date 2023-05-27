@@ -11,7 +11,7 @@ class Samochod extends Model
 	protected $fillable = ['id', 'idKlienta', 'marka', 'model', 'rocznik', 'nrRejestracyjny'];
 	protected $table = 'samochody';
 	public function klient() {
-		return $this->belongsTo(Klient::class, 'klientId');		
+		return $this->belongsTo(Klient::class, 'idKlienta');		
 	}
 	public function serwis() {
 		return $this->hasMany(SerwisSamochodu::class, 'idSamochodu');
