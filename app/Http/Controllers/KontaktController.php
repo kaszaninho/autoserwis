@@ -13,18 +13,13 @@ class KontaktController extends Controller
     public function kontaktWalidacja(Request $request) {		
 	 
 		$validated = $request->validate([
-			'Name' => 'required |max:255',
-			'Email' => 'required | email',
-			'Telefon' => 'required|numeric|max:255',
+			'Name' => 'required |max:255|min:2 ',
+			'Email' => 'required | email |min:6',
+			'Telefon' => 'required|numeric|min:2',
 			'Message' => 'required',
 		]);
  
 		 return view('kontakt.contact');
 	} 
-    public function sendEmail( )
-    {
-        
-    return view("kontakt.contact");
-    }
      
 }

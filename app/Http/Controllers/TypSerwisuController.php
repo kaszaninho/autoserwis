@@ -21,7 +21,13 @@ class TypSerwisuController extends Controller
 	}
 
 	public function update(Request $request, $id)
-	{			
+	{	
+		$validated = $request->validate([
+			'nazwa' => 'required | max:255 |min:2 | ',
+			'cena' => 'required | numeric | ',
+ 
+		]);
+
         if($id != -1) $typySerwisu = TypSerwisu::find($id);
 		else $typySerwisu = new TypSerwisu();
         $typySerwisu->nazwa =  $request->input('nazwa');

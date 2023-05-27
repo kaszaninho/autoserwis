@@ -61,7 +61,6 @@ class KlientController extends Controller
      */
     public function edit(Klient $klienci)
     {
-        //
          return view('klienci.edit', ['klienci'=>$klienci]);
     }
 
@@ -74,8 +73,12 @@ class KlientController extends Controller
      */
     public function update(Request $request, Klient $klienci)
     {
-        //
- 
+        $validated = $request->validate([
+			'imie' => 'required | max:255 |min:2 ',
+			'nazwisko' => 'required |min:2',
+			'adres_email' => 'required  ',
+		]);
+
         $klienci->imie =  $request->input('imie');
         $klienci->nazwisko = $request->input('nazwisko');
 		$klienci->adres_email = $request->input('adres_email');

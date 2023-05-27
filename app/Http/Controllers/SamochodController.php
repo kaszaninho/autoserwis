@@ -23,7 +23,13 @@ class SamochodController extends Controller
         }
     
         public function update(Request $request, $id)
-        {			
+        {	
+                $validated = $request->validate([
+			'marka' => 'required |max:255|min:2 ',
+			'model' => 'required | max:255 |min:3',
+			'rocznik' => 'required|numeric|min:2',
+			'nrRejestracyjny' => 'required',
+		]);		
                 if($id != -1) $samochod = TypSerwisu::find($id);
                 else $samochod = Samochod::firstOrNew(
                                 ['idKlienta' => $request->input('idKlienta')]);

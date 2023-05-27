@@ -1,5 +1,9 @@
 @section('content')
 @extends('main')					 		
+<div style="display: flex; justify-content: center;">
+  <img id="logo" src="{{ asset('images/KBlogo.png')}}" alt="Logo">
+</div>
+<h2> Stwórz / Edytuj Klienta</h2>
  
 @php
     $naglowki = array("Numer", "Marka", "Model", "Nr Rej");  
@@ -35,8 +39,8 @@
                             @break
                     @endswitch            
             @endforeach	
-            <td ><input type='submit' value='Edytuj' onClick="action='/samochody/edit/{{$samochod->id}}'">
-                        <input type='submit' value='Usun' onClick="action='/samochody/edit/{{$samochod->id}}'"></td>	
+            <td ><input type='submit' class ="submit" value='Edytuj' onClick="action='/samochody/edit/{{$samochod->id}}'">
+                        <input type='submit' class ="submit" value='Usun' onClick="action='/samochody/edit/{{$samochod->id}}'"></td>	
         </tr>	
     
     @endforeach

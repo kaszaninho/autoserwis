@@ -2,7 +2,7 @@
     @extends('main')
     <h2>Klienci</h2>
     @php $naglowki = array("Imię", "Nazwisko", "Email"); @endphp
-    <form action="/klienci " method="GET">
+    <form action="/klienci " method="POST">
  		<label for="filter">Filtruj:</label>
                     <input type="text" name="filter" id="filter" placeholder="Imię lub nazwisko">
                     <button class="submit" type="submit">Filtruj</button>
