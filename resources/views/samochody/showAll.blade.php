@@ -43,7 +43,7 @@
     </table>
 </form>
     <h2>Wybierz samochód</h2>
-    <form method="POST" action="/serwisy">
+    <form method="GET" action="/serwisy">
     @csrf
     <select class='drop-down' name='wybranySamochod'>
     @if($wybranySamochod == 'noSelection')
