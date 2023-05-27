@@ -12,7 +12,7 @@ class TypSerwisuController extends Controller
 		return view('typySerwisu.showAll', ['typyserwisu'=>$typyserwisu]);
 	}
 
-	public function editCennik($id)
+	public function edit($id)
 	{
 		if($id != -1) $typyserwisu = TypSerwisu::find($id);
 		else $typyserwisu = new TypSerwisu(['id'=>-1, 'nazwa'=>'', 'cena'=>'']);
@@ -20,7 +20,7 @@ class TypSerwisuController extends Controller
         return view('typySerwisu.edit', ['typyserwisu'=>$typyserwisu]);  
 	}
 
-	public function update2(Request $request, $id)
+	public function update(Request $request, $id)
 	{			
         if($id != -1) $typySerwisu = TypSerwisu::find($id);
 		else $typySerwisu = new TypSerwisu();
