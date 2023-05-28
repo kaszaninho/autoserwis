@@ -39,7 +39,7 @@ class KlientController extends Controller
     {
         //
 		return $this->update($request, 
-						new Klient(['id'=> -1, 'imie'=>'', 'nazwisko'=>'', 'adres_email'=>'']));
+						new Klient(['id'=> $id, 'imie'=>'', 'nazwisko'=>'', 'adres_email'=>'']));
     }
 
     /**
@@ -76,7 +76,7 @@ class KlientController extends Controller
         $validated = $request->validate([
 			'imie' => 'required | max:255 |min:2 ',
 			'nazwisko' => 'required |min:2',
-			'adres_email' => 'required  ',
+			 
 		]);
 
         $klienci->imie =  $request->input('imie');
