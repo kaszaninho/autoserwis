@@ -36,6 +36,6 @@
 		</table>
 		</form>
 		<br>
-		<a href="javascript:void(0)" onclick="history.back()">Powrót</a>
+		<a href="{{ url('/klienci') }}">Powrót</a>
 @endsection
  

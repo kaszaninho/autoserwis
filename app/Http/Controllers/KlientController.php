@@ -39,7 +39,7 @@ class KlientController extends Controller
     {
         //
 		return $this->update($request, 
-						new Klient(['id'=> $id, 'imie'=>'', 'nazwisko'=>'', 'adres_email'=>'']));
+						new Klient(['id'=> -1, 'imie'=>'', 'nazwisko'=>'', 'adres_email'=>'']));
     }
 
     /**

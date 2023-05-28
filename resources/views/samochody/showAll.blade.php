@@ -16,7 +16,7 @@
 @csrf
 <input type=hidden name='idklienta' value="{{$klient->id}}">
 <b><input class="submit" type="submit" value="Dodaj Pojazd"  ></b><br>
-    <a href="javascript:void(0)" onclick="history.back()">Powrót</a>
+<a href="{{ route('naprawy') }}">Powrót</a>
 </form>
 @else
     <form method='POST'>
@@ -48,7 +48,7 @@
                     </form>       
             @endforeach	
             <td >
-            <form method='POST'>  
+            <form method='GET'>  
             @csrf  
             <input type='submit' class ="submit" value='Edytuj' onClick="action='/samochody/edit/{{$samochod->id}}'">
             </form>

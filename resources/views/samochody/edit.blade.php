@@ -50,7 +50,7 @@
 </form>
 
 <br>
-<a href="{{ url()->previous() }}">Powrót</a>
+<a href="{{ route('naprawy') }}">Powrót</a>
 
 </div>
 @endsection
