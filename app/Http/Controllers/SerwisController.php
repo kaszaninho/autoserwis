@@ -29,7 +29,7 @@ class SerwisController extends Controller
                 $sumaSerwisow = TypSerwisu::whereIn('id', $lista)->sum('cena') ?? 0;
                 $listaSerwisow = TypSerwisu::whereIn('id', $lista)->get();
                 $wszystkieSerwisy = TypSerwisu::all();
-                $samochod = Samochod::find($samochodId)->first();
+                $samochod = Samochod::find($samochodId);
                 $lista = implode(',', $lista);
                 return view('serwisy.newSerwis', ['listaSerwisow' => $listaSerwisow, 'sumaSerwisow' => $sumaSerwisow, 'samochod' => $samochod, 'wszystkieSerwisy' => $wszystkieSerwisy, 'listaId' => $lista]);
         }

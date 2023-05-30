@@ -26,7 +26,7 @@ class KlientController extends Controller
     public function create()
     {
         //
-		return $this->edit(new Klient(['id'=>null, 'imie'=>'', 'nazwisko'=>'', 'adres_email'=>'']));
+		return $this->edit(new Klient(['id'=> null, 'imie'=>'', 'nazwisko'=>'', 'adres_email'=>'']));
     }
 
     /**
@@ -35,11 +35,11 @@ class KlientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
         //
 		return $this->update($request, 
-						new Klient(['id'=> $id, 'imie'=>'', 'nazwisko'=>'', 'adres_email'=>'']));
+						new Klient(['id'=> null, 'imie'=>'', 'nazwisko'=>'', 'adres_email'=>'']));
     }
 
     /**

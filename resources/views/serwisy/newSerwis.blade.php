@@ -27,7 +27,7 @@
 	@foreach($listaSerwisow as $serwis)
 		{{$serwis->nazwa}} - {{$serwis->cena}} zł <br/>
     @endforeach
-    @if(empty($listaSerwisow))
+    @if(count($listaSerwisow) == 0)
     Brak Serwisów
 	@endif
 </td>
