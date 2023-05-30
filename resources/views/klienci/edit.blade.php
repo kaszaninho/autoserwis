@@ -13,7 +13,7 @@
         </ul>
     </div>
 @endif
-<form method='POST' action="{{route('klienci.update', $klienci->id)}}"> 
+<form method='POST' action="{{route('klienci.update', $klienci)}}"> 
 	@csrf
 	 @method('PUT')
 		<table border=0>
@@ -27,7 +27,7 @@
 		</tr>
 		<tr>
 		<td><b>Email</b></td><td colspan=2>
-		<input type=text name='email' value='{{$klienci->adres_email}}' size=15 style='text-align: left'></td>
+		<input type=text name='adres_email' value='{{$klienci->adres_email}}' size=15 style='text-align: left'></td>
 		</tr>
 		<tr>
 		<td colspan=3 align='center'>		
@@ -36,6 +36,6 @@
 		</table>
 		</form>
 		<br>
-		<a href="javascript:void(0)" onclick="history.back()">Powrót</a>
+		<a href="{{ url('/klienci') }}">Powrót</a>
 @endsection
  

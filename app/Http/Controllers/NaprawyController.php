@@ -13,16 +13,4 @@ class NaprawyController extends Controller
 		$klienci = Klient::all();
 		return view('naprawy.showAll', ['klienci'=>$klienci]);
 	}
-	// public function showAlltwo() {
-    //     // $klientId = $request->input('wybrany');
-    //     // $klient = Klient::where('id', $klientId)->first();
-    //     $klient = Klient::first();
-	// 	return view('naprawy.showAlltwo');
-	// }
-	public function showAllthree() {	
-		$serwisy = SerwisSamochodu::all();
-		return view('naprawy.showAllthree', ['serwisy'=>$serwisy]);
-	}
-
-    
 }

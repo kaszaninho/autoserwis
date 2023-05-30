@@ -17,9 +17,9 @@
 		@csrf
 			 
 			 <b>Imię i Nazwisko  
-			<input type="text" name="Name" placeholder="imie i nazwisko"  ><br><br>
+			<input type="text" name="Name" placeholder="imie i nazwisko"><br><br>
 			<label><b>Email</label>  
-			<input type="email" name="Email" placeholder="email"   ><br><br>
+			<input type="email" name="Email" placeholder="email"><br><br>
 			<label><b>Telefon</b></label>  
 			<input type="text" name='Telefon' placeholder="Telefon"   ><br>
 			<span id='tel_info'>* Telefon powinien skadać się przynajmniej z 6 cyfr</span><br><br>
