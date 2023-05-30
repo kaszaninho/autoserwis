@@ -34,7 +34,7 @@
 
 <br/>
 <form method="GET" action="{{route('newSerwis', $samochod->id)}}">
-    <input type=submit value='Zgłoś nowy serwis'/>
+    <input class = "submit" type=submit value='Zgłoś nowy serwis'/>
 </form>
 
 
