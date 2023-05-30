@@ -33,7 +33,9 @@
         <li><a>Naprawy</a>
         <ul>
             <li><a href="/cennik">Cennik</a></li>
+			@auth
             <li><a href="/naprawy">Twoja lista</a></li>   
+			@endauth
         </ul>
         </li>
         <li><a href="/kontakt">Kontakt</a></li>
