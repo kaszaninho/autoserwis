@@ -4,7 +4,15 @@
 
 <div>
   <h1>Zgłoś samochód do naprawy:</h1>
-	
+  @if ($errors->any())
+		<div style="color: red;">
+			<ul>
+		@foreach ($errors->all() as $error)
+			<li>{{ $error }}</li>
+		@endforeach
+			</ul>
+		</div>
+	@endif
 	<table>
 	<form id='form' method="GET" action="{{route('newSerwis', $samochod->id)}}">
         <input type="hidden" name="lista" value="{{$listaId}}"/>
@@ -34,7 +42,7 @@
 	</tr>
 	<form id='form' method="POST" action="{{route('updateSerwis', $samochod->id)}}" onSubmit="alert('Umówiłeś wizytę!')">
         @csrf
-	<tr><td>Cena sumaryczna</td><td><input style="text-align:center" type=text name='cena' required value="{{$sumaSerwisow}} zł" readonly>
+	<tr><td>Cena sumaryczna</td><td><input style="text-align:center" type=numeric name='cena' required min="1" value="{{$sumaSerwisow}} zł" readonly>
 	</td>
 	</tr>
 	<tr><td>Samochód</td>

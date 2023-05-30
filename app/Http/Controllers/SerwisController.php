@@ -35,6 +35,9 @@ class SerwisController extends Controller
         }
         public function update($samochodId, Request $request)
         {			
+                $validated = $request->validate([
+			'data' => 'required'
+		]);
                 $serwis = new SerwisSamochodu;
                 $serwis->idSamochodu = $samochodId;
                 $serwis->idKlienta = Samochod::find($samochodId)->idKlienta;
