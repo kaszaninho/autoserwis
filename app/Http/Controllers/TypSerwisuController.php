@@ -24,7 +24,7 @@ class TypSerwisuController extends Controller
 	{	
 		$validated = $request->validate([
 			'nazwa' => 'required | max:255 |min:2 | ',
-			'cena' => 'required | numeric | ',
+			'cena' => 'required | numeric | min:1',
  
 		]);
 
