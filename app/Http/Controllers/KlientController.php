@@ -25,8 +25,7 @@ class KlientController extends Controller
      */
     public function create()
     {
-        //
-		return $this->edit(new Klient(['id'=> null, 'imie'=>'', 'nazwisko'=>'', 'adres_email'=>'']));
+		return $this->edit(null);
     }
 
     /**
@@ -38,8 +37,7 @@ class KlientController extends Controller
     public function store(Request $request)
     {
         //
-		return $this->update($request, 
-						new Klient(['id'=> null, 'imie'=>'', 'nazwisko'=>'', 'adres_email'=>'']));
+		return $this->update($request, -1);
     }
 
     /**
@@ -59,9 +57,9 @@ class KlientController extends Controller
      * @param  \App\Models\Klient  $klienci
      * @return \Illuminate\Http\Response
      */
-    public function edit(Klient $klienci)
+    public function edit($idKlienta)
     {
-         return view('klienci.edit', ['klienci'=>$klienci]);
+         return view('klienci.edit', ['klient'=>Klient::firstOrNew(['id' => $idKlienta])]);
     }
 
     /**
@@ -71,18 +69,19 @@ class KlientController extends Controller
      * @param  \App\Models\Klient  $klienci
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Klient $klienci)
+    public function update(Request $request, $id)
     {
         $validated = $request->validate([
 			'imie' => 'required | max:255 |min:2 ',
 			'nazwisko' => 'required |min:2',
             'adres_email' => 'required | email ',
 		]);
-
-        $klienci->imie =  $request->input('imie');
-        $klienci->nazwisko = $request->input('nazwisko');
-		$klienci->adres_email = $request->input('adres_email');
-        $klienci->save();
+        if ($id == -1) $klient = new Klient();
+        else $klient = Klient::firstOrNew(['id' => $id]);
+        $klient->imie =  $request->input('imie');
+        $klient->nazwisko = $request->input('nazwisko');
+		$klient->adres_email = $request->input('adres_email');
+        $klient->save();
 
         return redirect('/klienci');
     }

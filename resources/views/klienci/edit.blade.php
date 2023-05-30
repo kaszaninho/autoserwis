@@ -13,21 +13,26 @@
         </ul>
     </div>
 @endif
-<form method='POST' action="{{route('klienci.update', $klienci)}}"> 
+@if($klient->id != null)
+<form method='POST' action="{{route('klienci.update', [$klient->id])}}"> 
 	@csrf
 	 @method('PUT')
+@else
+<form method='POST' action="{{route('klienci.store', [-1])}}"> 
+	@csrf
+@endif
 		<table border=0>
 		<tr>
 		<td><b>Imię</b></td><td colspan=2>
-		<input type=text name='imie' value='{{$klienci->imie}}' size=15 style='text-align: left'></td>
+		<input type=text name='imie' value='{{$klient->imie}}' size=15 style='text-align: left'></td>
 		</tr>
 		<tr>
 		<td><b>Nazwisko</b></td><td colspan=2>
-		<input type=text name='nazwisko' value='{{$klienci->nazwisko}}' size=15 style='text-align: left'></td>
+		<input type=text name='nazwisko' value='{{$klient->nazwisko}}' size=15 style='text-align: left'></td>
 		</tr>
 		<tr>
 		<td><b>Email</b></td><td colspan=2>
-		<input type=text name='adres_email' value='{{$klienci->adres_email}}' size=15 style='text-align: left'></td>
+		<input type=text name='adres_email' value='{{$klient->adres_email}}' size=15 style='text-align: left'></td>
 		</tr>
 		<tr>
 		<td colspan=3 align='center'>		

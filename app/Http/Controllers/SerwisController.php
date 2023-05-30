@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 class SerwisController extends Controller
 {
 	public function showAll(Request $request) {
+                $validatedData = $request->validate([
+                        'wybranySamochod' => 'required|not_in:noSelection',
+                    ]);
+                
         $samochodId = $request->input('wybranySamochod');
         $samochod = Samochod::where('id', $samochodId)->first();
         return view('serwisy.showAll', ['serwisy' => $samochod->serwis, 'samochod' => $samochod]);
