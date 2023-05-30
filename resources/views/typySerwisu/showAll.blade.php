@@ -16,9 +16,10 @@
             @foreach($naglowki as $naglowek)
                 <td><b>{{ $naglowek }}</b></td>
             @endforeach
-             
+ @auth            
 			<td align="center"><b><input class="submit" type="submit" value="Dodaj nowego" onClick="action='/cennik/edit/-1'"></b></td>
-</form  >          
+</form  >  
+@endauth        
         </tr>
 
         @foreach($typyserwisu as $serwis)
@@ -28,16 +29,20 @@
 				@if($p == 'nazwa') <td>{{$pole}}</td>	@endif
 				@if($p == 'cena') <td>{{$pole}} zł</td>	@endif
 			@endforeach	
+            @auth
             <form method='GET'>
             <td align="center">
+
 			<input class="submit" type="submit" value="Edytuj" onClick="action='/cennik/edit/{{$serwis->id}}'">
             </form  > 
             <form method='GET'>
             <input class="submit" type="submit" value="Usuń" onClick="action='/cennik/destroy/{{$serwis->id}}'">
-            </form  > 
+   
+        </form  > 
             </td>
                 
             </tr>
+            @endauth
         @endforeach
     </table>
 </form>
