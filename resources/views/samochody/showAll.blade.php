@@ -48,11 +48,11 @@
                     </form>       
             @endforeach	
             <td >
-            <form method='GET'>  
+            <form method='POST'>  
             @csrf  
             <input type='submit' class ="submit" value='Edytuj' onClick="action='/samochody/edit/{{$samochod->id}}'">
             </form>
-            <form method='GET'>            
+            <form method='POST'>            
             <input type='submit' class ="submit" value='Usun' onClick="action='/samochody/destroy/{{$samochod->id}}'"></td>	
             </form>    
             </tr>	

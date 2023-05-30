@@ -9,7 +9,7 @@
     @endphp
     <br>
     <h2><b>Historia serwisów<br></h2>
-     Samochód {{$samochod->marka}} {{$samochod->model}} <br>Rejestra {{$samochod->nrRejestracyjny}}</b><br><br>
+     Samochód {{$samochod->marka}} {{$samochod->model}} <br>Rejestracja {{$samochod->nrRejestracyjny}}</b><br><br>
     <table border = 1><tr>
     @foreach($naglowki as $naglowek) <td><b>{{$naglowek}}</b></td> @endforeach
     </tr>
