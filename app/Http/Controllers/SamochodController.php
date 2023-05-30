@@ -30,13 +30,12 @@ class SamochodController extends Controller
         public function update(Request $request, $id)
         {	
                 $validated = $request->validate([
-                        'wybrany' => 'required|not_in:noSelection',
-			'model' => 'required | max:255 |min:3',
+                        'marka' => 'required| max:255 |min:1',
+			'model' => 'required | max:255 |min:1',
 			'rocznik' => 'required|numeric|min:2',
 			'nrRejestracyjny' => 'required',
 		]);		
-                if($id != -1) $samochod = Samochod::find($id);
-                else $samochod = Samochod();
+                $samochod = Samochod::findOrNew($id);
                                
                 $samochod->idKlienta =  $request->input('idKlienta');                
                 $samochod->marka =  $request->input('marka');
@@ -54,6 +53,6 @@ class SamochodController extends Controller
                 $samochod = Samochod::find($id);		        
                 $samochod->delete();
                 //$sam  = Klient::where('id', $klientId)->first();
-                return redirect('/samochody/{{$samochod->sam->id}}');
+                return redirect('/naprawy');
         }
 }

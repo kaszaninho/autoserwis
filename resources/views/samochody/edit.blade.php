@@ -26,19 +26,19 @@
         <tr>
             <td><b>Model</b></td>
             <td colspan="2">
-                <input type="text" name="model"   value=" {{$samochod->model}} " size="15" style="text-align: left">
+                <input type="text" name="model"   value="{{$samochod->model}}" size="15" style="text-align: left">
             </td>
         </tr>
         <tr>
             <td><b>Rocznik</b></td>
             <td colspan="2">
-                <input type="text" name="rocznik"   value=" {{$samochod->rocznik}} " size="15" style="text-align: left">
+                <input type="text" name="rocznik"   value="{{$samochod->rocznik}}" size="15" style="text-align: left">
             </td>
         </tr>
         <tr>
             <td><b>Numer rejestracyjny</b></td>
             <td colspan="2">
-                <input type="text" name="nrRejestracyjny"   value=" {{$samochod->nrRejestracyjny}} " size="15" style="text-align: left">
+                <input type="text" name="nrRejestracyjny"   value="{{$samochod->nrRejestracyjny}}" size="15" style="text-align: left">
             </td>
         </tr>
         <tr>
