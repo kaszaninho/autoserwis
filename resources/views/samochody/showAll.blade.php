@@ -6,21 +6,19 @@
 <h2> Pojazdy</h2>
  
 @php
-    $naglowki = array("Numer", "Marka", "Model", "Nr Rej");  
+    $naglowki = array("Numer", "Marka", "Model", "Rocznik", "Nr Rej");  
     $wybranySamochod = 'noSelection';  
 @endphp
 
 @if($samochody->count() == 0)
 <b><p style="color: red;">Brak samochodów dla tego klienta!</p></b>
-<form method='POST' action='/samochody/edit/-1'>
-@csrf
+<form method='GET' action='/samochody/edit/-1'>
 <input type=hidden name='idklienta' value="{{$klient->id}}">
 <b><input class="submit" type="submit" value="Dodaj Pojazd"  ></b><br>
 <a href="{{ route('naprawy') }}">Powrót</a>
 </form>
 @else
-    <form method='POST'>
-    @csrf
+    <form method='GET'>
     <br><b>Samochody klienta {{$klient->imie}} {{$klient->nazwisko}}</b><br>
     <input type=hidden name='idklienta' value="{{$klient->id}}">
     <table border = 1><tr>
@@ -41,6 +39,9 @@
                         @case('model')
                             <td>{{$pole}}</td> 
                             @break
+                        @case('rocznik')
+                            <td>{{$pole}}</td> 
+                            @break
                         @case('nrRejestracyjny')
                             <td>{{$pole}}</td> 
                             @break
@@ -48,11 +49,11 @@
                     </form>       
             @endforeach	
             <td >
-            <form method='POST'>  
+            <form method='GET'>  
             @csrf  
             <input type='submit' class ="submit" value='Edytuj' onClick="action='/samochody/edit/{{$samochod->id}}'">
             </form>
-            <form method='POST'>            
+            <form method='GET'>            
             <input type='submit' class ="submit" value='Usun' onClick="action='/samochody/destroy/{{$samochod->id}}'"></td>	
             </form>    
             </tr>	

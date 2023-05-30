@@ -42,7 +42,7 @@ use App\Http\Controllers\NaprawyController;
 Route::get('/naprawy', [NaprawyController::class, 'showAll'])->name('naprawy');
 use App\Http\Controllers\SamochodController; 
 Route::get('/samochody', [SamochodController::class, 'showAll']);
-Route::post('/samochody/edit/{id}', [SamochodController::class, 'edit']);
+Route::get('/samochody/edit/{id}', [SamochodController::class, 'edit']);
 Route::post('/samochody/update/{id}', [SamochodController::class, 'update'])->name('updateSamochod');
 Route::get('/samochody/destroy/{id}', [SamochodController::class, 'destroySamochod']);
 // Serwis
