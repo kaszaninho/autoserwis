@@ -62,6 +62,15 @@
     </table>
 
     <h2>Wybierz samochód</h2>
+    @if ($errors->any())
+    <div style="color: red;">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <form method="GET" action="/serwisy">
     <select class='drop-down' name='wybranySamochod'>
     @if($wybranySamochod == 'noSelection')

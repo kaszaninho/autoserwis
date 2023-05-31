@@ -5,13 +5,13 @@
 </div>
     <h2>Klienci</h2>
     @php $naglowki = array("Imię", "Nazwisko", "Email"); @endphp
-    <form action="/klienci " method="GET">
+    <form action="/klienci" method="GET">
  		<label for="filter">Filtruj:</label>
                     <input type="text" name="filter" id="filter" placeholder="Imię lub nazwisko">
                     <button class="submit" type="submit">Filtruj</button>
     </form> 
 		<br> <br> 
-        <form method='GET'>
+        <form method='GET' action="/klienci/create/">
         <table border="1">
             <tr>
                 @foreach($naglowki as $naglowek)
@@ -19,7 +19,7 @@
                 @endforeach
 
                 <td align='center'><b>
-                        <input type='submit' class="submit" onClick="action='/klienci/create'"
+                        <input type='submit' class="submit"
                                value='Dodaj nowego'></b>
                     </td>
             </tr>
